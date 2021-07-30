@@ -1,0 +1,83 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/*Login form*/
+.Login_form{
+    background-color:bisque;
+    padding: 30px;
+    border-radius: 10px;
+    
+}
+.Login_form h1{
+    color:rgb(93, 103, 243);
+    font-weight: 600;
+}
+.Login_form button{
+    color: white;
+}
+.Login-form .row, .Registration-form .row{
+    background-color:rgb(168, 242, 255);
+    padding: 20px;
+    
+}
+/*nav bar*/
+.navbar{
+    background-color:rgb(130, 195, 252);
+}
+
+.navbar-brand a img{
+    width: 50px;
+    height: 50px;
+}
+.navbar-brand a{
+    text-decoration: none;
+    color:rgb(0, 253, 169);
+    font-size: 25px;
+}
+.nav-link{
+    color:black;
+    font-size: 18px;
+    font-weight: 600;
+}
+.main{
+    margin-top: 100px;
+}
+.card{
+    margin: 20px;
+    transition: all .5s;
+}
+.card:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: scale(1.1);
+}
+.card img{
+    width: 100%;
+    height: 200px;
+    transition: all .5s;
+}
+
+/*footer*/
+footer{
+    background-color:antiquewhite;
+    padding: 40px 0px;
+}
+.brand-info img{
+    width: 100px;
+    height: 100px;
+}
+.brand-info h1{
+    color:rgb(0, 172, 115);
+}
+.footer-content{
+    margin-top: 40px;
+}
+.footer-content a{
+    display: block;
+    padding-left: 10px;
+    padding-top: 15px;
+    text-decoration: none;
+    color: black;
+}
+.copyright strong{
+    color:rgb(0, 244, 163);
+}
