@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script>
+        function renderProductsSearchPage(num) {
+            var viewSize = 25;
+            var newPageNum = num-1;
+            var startIndex = viewSize*newPageNum;
+            //$("#brandProductListDiv").hide();
+            $("#BrandProductsLoader").show();
+            jQuery.ajax({
+                url: "/loadMorePharmacyProducts.mart",
+                type: 'POST',
+                data : "brand="+$('#brand').val()+"&startIndex="+startIndex+"&productIdString="+$("#productIdString").val()+"&totalProductFound="+$("#totalProductFound").val(),
+                cache: false,
+                success: function(content) {
+                    //alert(content);
+                    $('#brandProductListDiv').replaceWith(content);
+                    $("#BrandProductsLoader").hide();
+                    $("#brandProductListDiv").show();
+                },
+                error : function(){
+                    $(".svrmsg").removeClass("alert-success alert-danger").addClass("alert-danger").slideDown().delay(5000).slideUp("slow").find("span").html("Unable to process your request.");
+                    $("#BrandProductsLoader").hide();
+                }
+            }); 
+        };
+        </script>
+        <div class="sc-disablebox" id="BrandProductsLoader" style="display:none;">
+            <div class="typing_loader" style="margin-top:35%;"></div>
+        </div>
+        <div class="container-fluid" id="brandProductListDiv">
+        
+        
+        
+        
+        
+        <div class="row">
+            <div class="container-fluid padding-none">
+                <div class="col-xs-12 col-sm-12 col-md-12 padding-none">
+                    <div class="row content-container-row padding-all-15">
+                        <div class="page-header margin-t-none">
+                          <h1 class="hidden-xs margin-t-none" title="Products for ARISTO PHARMACEUTICALS PVT LTD">ARISTO PHARMACEUTICALS PVT LTD Products <a class="btn btnRedBdr pull-right" href="/brands" title="Browse other Manufacturers"> Browse other Manufacturers</a></h1>
+                          <h3 class="visible-xs margin-t-none" title="Products for ARISTO PHARMACEUTICALS PVT LTD"><button type="button" class="btn btnRedBdr btn-block margin-b" onclick="window.location ='/brands'" title="Browse other Manufacturers">Browse other Manufacturers</button>ARISTO PHARMACEUTICALS PVT LTD Products</h3>
+                        </div>
+                        
+                            
+                                <!-- Pagination Start -->
+                                
+                                
+                                
+                                
+                                
+                                
+                                    <div class="row margin-none clearfix">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 margin-b padding-none">
+                                            <div class="col-md-6 padding-none">
+                                                <h6>Showing 1 to 25 of 638 entries</h6>
+                                            </div>
+                                            <div class="col-md-6 padding-none">
+                                            <div class="paginationDiv clearfix" id="pagination">
+                                                <ul class="pagination pagination-sm pull-right margin-none">
+                                                    
+                                                    
+                                                        <li><a class="left pagenationicnprelast" href="javascript:;">«</a></li>
+                                                        <li><a class="left pagenationicnlft" href="javascript:;"><</a></li> 
+                                                    
+                                                    
+                                                        
+                                                            
+                                                            
+                                                            
+                                                        
+                                                        
+                                                        
+                                                    
+                                                    
+                                                        
+                                                            
+                                                                <li class="active"><a class="left pagenation" href="javascript:;">1</a></li>
+                                                            
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(2);">2</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(3);">3</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(4);">4</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(5);">5</a></li>
+                                                            
+                                                        
+                                                    
+                                                        <li><a class="left pagenationicnryt" href="javascript:;" onclick="renderProductsSearchPage(2);">></a></li>
+                                                        <li><a class="left pagenationicnnxtlast" href="javascript:;" onclick="renderProductsSearchPage(26.0);">»</a></li> 
+                                                </ul>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                
+                                <!-- Pagination End -->
+                                <!-- Product List Result start -->	
+                                <div class="row margin-none">
+                                    <div class="container-fluid padding-none">
+                                         <div class="col-xs-12 col-sm-12 col-md-12 padding-none">
+                                             <div class="table-responsive padnone-all" id="brandProductTableDiv">
+                                                <table id="brandProductTable" class="table table-hover padnone-l-r">
+                                                    <thead>
+                                                        <tr class="active color-wht">
+                                                            <th class="col-sm-7 col-md-7 ellips padding-l-20">Name</th>
+                                                            <th class="col-sm-2 col-md-2 ellips padding-l-20 hidden-xs">Form</th>
+                                                            <th class="col-sm-1 col-md-1 ellips padding-l-20 sort-numeric text-center hidden-xs">Pack Size</th>
+                                                            <th class="col-sm-2 col-md-2 ellips padding-l-20 text-right sort-numeric hidden-xs">MRP</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody data-link="row" class="rowlink">
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PURE-D3-60000IU-TAB/PURE0018">PURE D3 60000IU TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Cholecalciferol 60000 IU">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Cholecalciferol 60000 IU
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>108.33
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">4</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>108.33</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/MYOPROL-XL-50MG-TAB/MYOP0003">MYOPROL XL 50MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Metoprolol 50 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Metoprolol 50 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>64.38
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>64.38</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PURE-MCT-100GM-POWDER/PURE0012">PURE MCT 100GM POWDER</a>
+                                                                    <br/><small class="hidden-xs" title="Not Available">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Not Available
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>POWDER<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>272.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">POWDER</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>272.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/MULTIMUNE-100ML-SYP/MULT0555">MULTIMUNE 100ML SYP</a>
+                                                                    <br/><small class="hidden-xs" title="Not Available">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Not Available
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>SYRUP<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>199.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">SYRUP</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>199.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-20MG-TAB/PANT0022">PANTOP 20MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 20 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 20 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>64.55
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>64.55</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PROSTAGARD-4MG-CAP/PROS0051">PROSTAGARD 4MG CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Silodosin 4 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Silodosin 4 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>89.75
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>89.75</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-DSR-CAP/PANT0041">PANTOP DSR CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 40 MG+Domperidone 30 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 40 MG+Domperidone 30 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>129.50
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>129.50</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-LS-CAP/PANT0169">PANTOP LS CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 40 MG+Levosulpiride 75 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 40 MG+Levosulpiride 75 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>198.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>198.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PIOSAFE-15MG-TAB/PIOS0005">PIOSAFE 15MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Pioglitazone 15 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pioglitazone 15 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>55.70
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>55.70</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-D-CAP/PANT0024">PANTOP D CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 20 MG+Domperidone 10 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 20 MG+Domperidone 10 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>99.50
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>99.50</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-IT-CAP/PANT0068">PANTOP IT CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 40 MG+Itopride 150 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 40 MG+Itopride 150 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>195.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>195.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-40MG-TAB/PANT0023">PANTOP 40MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 40 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 40 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>136.85
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">15</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>136.85</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/NEBI-5MG-TAB/NEBI0001">NEBI 5MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Nebivolol 5 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Nebivolol 5 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>89.70
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>89.70</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PROSTAGARD-8MG-CAP/PROS0057">PROSTAGARD 8MG CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Silodosin 8 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Silodosin 8 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>159.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>159.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PROSTAGARD-D-8MG-CAP/PROS0058">PROSTAGARD D 8MG CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Dutasteride 0.5 MG+Silodosin 8 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Dutasteride 0.5 MG+Silodosin 8 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>187.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>187.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/MYOPROL-XL-25MG-TAB/MYOP0002">MYOPROL XL 25MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Metoprolol 25 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Metoprolol 25 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>40.77
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>40.77</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PROSTAGARD-D-4MG-CAP/PROS0059">PROSTAGARD D 4MG CAP</a>
+                                                                    <br/><small class="hidden-xs" title="Dutasteride 0.5 MG+Silodosin 4 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Dutasteride 0.5 MG+Silodosin 4 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>CAPSULE<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>134.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">CAPSULE</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>134.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/MY-PILL-21S-KIT-TAB/MY_P0001">MY PILL 21S KIT TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Cyproterone acetate 2 MG+Ethinyl estradiol 0.035 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Cyproterone acetate 2 MG+Ethinyl estradiol 0.035 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>KIT<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>285.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">KIT</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>285.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/NEBI-2-5MG-TAB/NEBI0008">NEBI 2.5MG TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Nebivolol 2.5 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Nebivolol 2.5 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>62.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>62.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/NEBI-H-TAB/NEBI0009">NEBI H TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Nebivolol 5 MG+Hydrochlorothiazide 12.5 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Nebivolol 5 MG+Hydrochlorothiazide 12.5 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>91.95
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>91.95</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PROTONE-MOM-CHOCOLATE-TREAT-FLAVOUR-200GM-POWDER/PROT0119">PROTONE MOM CHOCOLATE TREAT FLAVOUR 200GM POWDER</a>
+                                                                    <br/><small class="hidden-xs" title="Not Available">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Not Available
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>POWDER<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>299.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">POWDER</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>299.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/NIMODOL-TAB/NIMO0003">NIMODOL TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Nimesulide 100 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Nimesulide 100 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>62.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>62.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-40MG-INJ/PANT0037">PANTOP 40MG INJ</a>
+                                                                    <br/><small class="hidden-xs" title="Pantoprazole 40 MG /INJ">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Pantoprazole 40 MG /INJ
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>INJECTION<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>49.99
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">INJECTION</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>49.99</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/NEBI-AM-TAB/NEBI0012">NEBI AM TAB</a>
+                                                                    <br/><small class="hidden-xs" title="Nebivolol 5 MG+Amlodipine 5 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Nebivolol 5 MG+Amlodipine 5 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>TABLET<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>107.00
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">TABLET</td>
+                                                                <td class="text-center hidden-xs">10</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>107.00</td>
+                                                            </tr> 
+                                                        
+                                                            <tr class="cursor">
+                                                                <td class="col-sm-2">
+                                                                    <a class="text-default caps" href="/product/PANTOP-HP-KIT/PANT0039">PANTOP HP KIT</a>
+                                                                    <br/><small class="hidden-xs" title="Clarithromycin 500 MG+Pantoprazole 40 MG+Amoxicillin 750 MG">
+                                                                        Comp:
+                                                                        
+                                                                            
+                                                                            
+                                                                                Clarithromycin 500 MG+Pantoprazole 40 MG+Amoxicillin 750 MG
+                                                                            
+                                                                        
+                                                                    </small>
+                                                                    <div class="visible-xs vsmall-text">
+                                                                        <strong>Form: </strong>KIT<br/>
+                                                                        <strong>MRP: </strong><i class="fa fa-inr"></i>169.65
+                                                                    </div>
+                                                                </td>
+                                                                <td class="hidden-xs">KIT</td>
+                                                                <td class="text-center hidden-xs">1</td>
+                                                                <td class="text-right hidden-xs"><i class="fa fa-inr"></i>169.65</td>
+                                                            </tr> 
+                                                        
+                                                    </tbody> 
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Product List Result end -->
+                                <!-- Pagination Start -->
+                                
+                                
+                                
+                                
+                                
+                                
+                                    <div class="row margin-none clearfix border-t">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 padding-none margin-t">
+                                            <div class="col-md-6 padding-none">
+                                                <h6>Showing 1 to 25 of 638 entries</h6>
+                                            </div>
+                                            <div class="col-md-6 padding-none">
+                                            <div class="paginationDiv clearfix" id="pagination">
+                                                <ul class="pagination pagination-sm pull-right margin-none">
+                                                    
+                                                    
+                                                        <li><a class="left pagenationicnprelast" href="javascript:;">«</a></li>
+                                                        <li><a class="left pagenationicnlft" href="javascript:;"><</a></li> 
+                                                    
+                                                    
+                                                        
+                                                            
+                                                            
+                                                            
+                                                        
+                                                        
+                                                        
+                                                    
+                                                    
+                                                        
+                                                            
+                                                                <li class="active"><a class="left pagenation" href="javascript:;">1</a></li>
+                                                            
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(2);">2</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(3);">3</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(4);">4</a></li>
+                                                            
+                                                        
+                                                    
+                                                        
+                                                            
+                                                            
+                                                                <li><a class="left pagenation" href="javascript:;" onclick="renderProductsSearchPage(5);">5</a></li>
+                                                            
+                                                        
+                                                    
+                                                        <li><a class="left pagenationicnryt" href="javascript:;" onclick="renderProductsSearchPage(2);">></a></li>
+                                                        <li><a class="left pagenationicnnxtlast" href="javascript:;" onclick="renderProductsSearchPage(26.0);">»</a></li> 
+                                                </ul>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                
+                                <!-- Pagination End -->
+                                <form id="filterFieldsForm">
+                                    <input type="hidden" id="productIdString" value='["PANT0021","PANT0022","PANT0023","PANT0024","PANT0037","PANT0039","PANT0041","PANT0068","PANT0169","PIOS0005","MULT0555","MYOP0002","MYOP0003","MY_P0001","NEBI0001","NEBI0008","NEBI0009","NEBI0012","NIMO0003","PROS0051","PROS0057","PROS0058","PROS0059","PROT0119","PURE0012","PURE0018","QCAR0001","RABE0023","RABE0030","RABI0006","RABI0017","RACE0023","RANT0016","RESV0002","GABA0002","GABA0036","GABA0057","GABA0065","GABA0072","GABA0094","GABA0108","GABA0120","GABA0169","MERO0042","MERO0062","MERO0072","MERO0084","META0010","MIKA0001","MIKA0002","MIKA0003","MONO0001","MONO0002","MONO0003","MONO0004","MONO0005","MONO0007","MONO0008","MONO0009","MONO0010","MONO0023","MONO0047","MONO0078","MONO0090","MONO0092","MONO0094","MONO0095","MONO0100","MONT0018","MONT0021","MONT0022","MONT0125","MONT0130","MONT0222","MONT0223","MULT0193","MAGN0113","MEGA0004","MEGA0006","MEGA0007","MEGA0012","MEGA0024","MEGA0046","MEGA0050","MEGA0052","MEGA0053","MEGA0059","MEGA0066","MEGA0073","MEGA0079","MEGA0080","MEGA0099","MEGA0100","MEGA0103","MEGA0105","MEGA0128","MEGA0129","MEGA0134","MEGA0139","MEGA0146","MEGA0152","MEGA0154","MEGA0155","MEGA0162","MEGA0196","MEGA0197","MEGA0253","MEGA0307","MEGA0434","MELO0003","LETP0001","LULI0029","LULI0039","LULI0165","ACEC0001","ACEC0002","ACEC0003","ACEC0004","ACEC0005","ACEC0016","BIGO0001","BIGO0002","BIGO0003","BIGO0004","BIGO0005","BIGO0010","ALSA0002","ALSA0004","ALSA0005","AMBR0002","AMBR0003","AMBR0004","AMBR0006","AMBR0007","AMBR0031","AMBR0033","AMBR0042","AMBR0062","AMLO0045","AMLO0046","AMLO0047","AMLO0048","AMLO0074","AMLO0078","AMLO0086","AMLO0148","AMLO0149","AMLO0150","AMLO0357","ARIS0006","ARIS0007","ARIS0008","ARIS0028","CEFA0002","CEFA0003","CEFA0004","CEFA0005","CEFA0043","CEFA0044","ATCH0002","ATCH0003","ATCH0004","ATCH0005","ATCH0006","ATCH0008","AZIV0002","AZIV0003","AZIV0004","AZIV0005","AZIV0012","GRAN0004","GRAN0023","HATR0001","HATR0002","HATR0004","HATR0005","HATR0007","HATR0009","HOPE0002","HOPE0003","HOPE0007","CROM0007","DARO0003","DARO0005","DARO0006","DARO0010","DARO0011","DEZA0001","EPIN0003","EPIN0007","ETOC0001","ETOC0003","DOXO0026","DOXO0041","DUOP0001","DUOP0002","DUOP0003","DUOP0004","DUOP0006","DUOP0007","DURA0012","IMAX0006","IMAX0007","IMMU0108","INTI0001","INTI0002","ITRA0049","ITRA0058","GABA0324","GABA0420","GIFA0002","GIFA0004","GLEZ0001","GLEZ0002","GLIM0013","GLIM0014","GLIM0015","GLIM0017","GLIM0043","GLIM0056","GLIM0284","GLIM0285","GLIP0022","GLIP0024","GLIP0025","GLYB0001","GLYB0002","GLYB0006","GLYC0006","GLYC0008","GLYC0009","FLEX0005","FLEX0006","FLEX0096","FLOD0001","FLOD0002","FOLI0017","FOLI0018","FOLI0096","FORC0004","FORC0006","FORC0017","FORC0018","FOSF0007","CLIN0005","CLIN0055","CLIN0057","CLIN0142","CLOF0011","CLOF0012","COMB0062","OFLE0001","OFLE0009","OLME0011","OLME0012","OLME0023","OMNI0021","OMNI0062","ORNI0004","ORNO0001","OSTE0018","SMUL0004","SMUT0001","SMUT0002","SMUT0006","SMUT0007","SMUT0010","SOFT0001","SOFT0002","SOFT0088","VILD0070","VILD0071","VILD0072","VISC0002","V_TO0002","ULTR0223","UTJO0001","SEMI0004","S-AM0001","S-AM0002","O_ST0001","SUPE0025","TELV0001","TELV0002","TELV0003","TELV0004","TELV0005","TELV0006","TELV0007","TELV0008","TELV0010","TELV0011","TELV0012","TELV0013","TELV0017","TELV0018","TELV0038","TELV0039","THIO0028","THIO0029","TOBA0003","TOBA0005","TORS0005","TORS0006","TORS0084","TRAN0018","TRAN0021","TRIG0008","TRIG0012","TRIM0021","TRIM0022","TRIO0009","TRIO0010","ZERO0056","ZILP0001","ZYMO0004","ZYMO0005","PANT0027","PEDP0001","PEDP0002","PEDP0003","PEDP0004","PEDP0005","PIOS0002","PIOS0004","PIOS0006","POLI0069","POWE0041","MYOP0001","MYOP0004","NEUR0037","PROF0005","PROF0006","PROF0078","PROF0081","PROG0121","PROG0154","PROM0001","PROT0012","PROT0109","PROT0350","PURE0017","PURE0103","PURE0104","QURE0001","QURE0002","QURE0003","QURE0004","QURE0005","RABI0034","RABI0045","REPA0013","RESI0001","REVU0002","FADI0001","FADI0002","NORM0023","NORM0034","GABA0037","GABA0047","GABA0078","GABA0151","MERO0040","MERO0041","MERO0043","MERO0069","MERO0127","MERO0204","MERO0320","MERO0321","META0023","MIFT0002","MIKA0004","MIKA0005","MINO0018","MINO0020","MONO0006","MONO0068","MONO0133","MONO0212","MONT0156","MONT0157","MONT0158","MONT0500","MONT0875","MAGN0105","MAXI0003","MAXI0007","MAXI0009","MEFL0001","MEGA0005","MEGA0018","MEGA0025","MEGA0028","MEGA0049","MEGA0060","MEGA0071","MEGA0086","MEGA0087","MEGA0089","MEGA0091","MEGA0097","MEGA0133","MEGA0140","MEGA0141","MEGA0179","MEGA0192","MEGA0373","MEGA0435","MEGA0436","MEGA0437","MEGA0448","MELO0006","LENT0001","LENT0010","LIVA0001","LIVA0002","LORN0010","LORN0011","LORN0013","LORN0014","LORN0017","LORN0018","LORN0021","LULI0295","ACEC0074","AFIX0001","AFIX0005","ALFA0011","ALSA0003","AMBR0005","AMBR0039","AMLO0435","ARIS0001","ARIS0003","ARIS0004","ARIS0005","ARIS0009","ARIS0010","ARIS0011","ARIS0012","ARIS0013","ARIS0014","BUTR0001","BUTR0002","CAFE0001","CEFA0001","CEFA0026","ASPI0005","ASPI0006","ASPI0007","ATCH0001","ATCH0007","ATIS0001","AZEN0001","AZEN0002","AZEN0006","AZIV0013","BACI0001","BACI0003","BACI0004","BACI0006","BACI0008","BACI0009","BACI0010","BACI0014","BACI0015","BACT0164","BALO0004","CELE0007","CHEK0006","CHEX0001","CHEX0003","CHEX0004","CITI0001","GRAN0001","GRAN0003","HATR0003","HATR0006","HATR0008","HATR0010","HATR0011","HATR0012","HOPE0001","HOPE0004","HOPE0008","HOPE0011","I-MA0001","COXI0014","DARO0002","DARO0004","DARO0008","DARO0009","DELI0001","DELI0002","DENE0002","DENE0003","DEZA0002","DEZA0003","DEZA0004","DEZA0005","DEZA0008","DEZA0009","ENOX0020","ENOX0028","ENOX0042","ETOC0004","EXPI0001","DOBI0023","DOXO0012","DOXO0013","DURA0032","DURA0068","IMAX0002","IMAX0005","IMAX0008","IMAX0010","IMMU0129","INTI0003","ITOF0001","KETO0186","GATI0025","GIFA0001","GIFA0003","GLEZ0003","GLIM0092","GLIM0100","GLUF0024","GLYC0005","GLYC0010","GLYC0011","GLYC0085","GLYC0086","FLEX0004","FLUS0001","FOND0010","FORC0013","FORC0019","FORC0029","FULS0004","CLIN0014","CLOF0010","COMB0033","COMB0055","COMB0077","COMB0080","FEXO0001","O-ST0001","OFLE0002","OLME0020","OLME0024","OLME0025","OLYT0001","OLYT0002","OMCE0002","OMCE0003","OMNI0023","OMNI0029","OMNI0030","OMNI0031","OMNI0033","OMNI0034","OMNI0038","OMNI0042","OMNI0066","OMNI0074","OMNI0091","OMNI0092","ORFL0001","ORNI0003","ORNI0006","ORNI0008","ORNI0022","ORNO0002","ORNO0004","ORNO0006","ORNO0008","ORNO0009","ORNO0010","OSTE0012","OSTE0015","SMUL0002","SMUL0003","SMUL0005","SMUT0003","SMUT0005","SMUT0008","SPAR0005","SPAS0010","STRE0004","STRE0005","STRE0690","STRE0691","VISC0028","V_TO0003","V_TO0004","ULTR0014","ULTR0018","ULTR0224","VASO0029","SCAR0001","SCAR0002","ROXE0001","ROXE0009","S-AM0004","S-AM0010","SIMC0004","SUPE0024","S_AM0001","S_AM0003","S_AM0004","TABR0002","THIO0022","THIO0023","THIO0080","TOBA0002","TOBA0004","TOBA0017","TOBA0022","TORS0007","TORS0011","TORS0013","TORS0018","TRAN0352","TRAN0803","TRIG0058","TRIM0125","TRIO0037","Z-ST0001","ZERO0036","ZERO0043","ZERO0046","ZERO0066","ZERO0139","ZEXA0001","ZILP0002","ZYMO0007","Z_ST0001"]' name="productIdString"/>
+                                    <input type="hidden" id="totalProductFound" value='638' name="totalProductFound"/>
+                                    <input type="hidden" id="brand" value='ARISTO PHARMACEUTICALS PVT LTD' name="brand"/>
+                                </form>
+                            
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+
+</html>

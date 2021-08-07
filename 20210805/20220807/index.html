@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+               
+    </style>
+</head>
+<body>
+
+    <input type="number"  id="input1" placeholder="First value">
+    <input type="number"  id="input2" placeholder="Second value">
+    <button onclick="printInputData()">Print </button>
+
+    <h3 id="InputShow"> </h3>
+    <script>
+        function printInputData()
+        {
+
+        let a = document.getElementById('input1');
+        let b = document.getElementById('input2');
+        
+       
+        document.getElementById('InputShow').innerText = "Sum of " + a +" and " + b+  " is" + (Number(a) + Number(b))  ;
+        }
+    </script>
+
+</body>
+</html>

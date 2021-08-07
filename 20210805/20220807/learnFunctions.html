@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color: rgb(255, 12, 12);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="mohit_room()">Mohit</button>
+    <button onclick="neelesh_room()">Neelesh</button>
+    <button onclick="hemant_room()">Hemant</button>
+    <button onclick="neha_room()">Neha</button>
+    <p>
+        Room No is <span id="room_no"></span> is
+        Alloted to  <span id="alloted_to"></span> and
+        Things 
+         <span id="thing1"></span>,
+         <span id="thing2"></span>
+    </p>
+    <script>
+
+        function mohit_room(){
+            var room_no = 'F001'
+            var thing1 = 'Aata'
+            var thing2 = 'Loki'
+            var alloted_to = 'Mohit'
+            document.getElementById('room_no').innerText = room_no;
+            document.getElementById('alloted_to').innerText = alloted_to;
+            document.getElementById('thing1').innerText = thing1;
+            document.getElementById('thing2').innerText = thing2;
+            kitchen(alloted_to,thing1,thing2); // Function calling with argument passing
+        }
+
+        function neelesh_room(){
+            var room_no = 'F002'
+            var thing1 = 'Aata'
+            var thing2 = 'Paneer'
+            var alloted_to = 'Neelesh'
+            document.getElementById('room_no').innerText = room_no;
+            document.getElementById('alloted_to').innerText = alloted_to;
+            document.getElementById('thing1').innerText = thing1;
+            document.getElementById('thing2').innerText = thing2;
+            kitchen(alloted_to,thing1,thing2); // Function calling with argument passing
+        }
+        
+        function hemant_room(){
+            var room_no = 'F009'
+            var thing1 = 'Chawal'
+            var thing2 = 'Sambhar'
+            var alloted_to = 'Hemant'
+            document.getElementById('room_no').innerText = room_no;
+            document.getElementById('alloted_to').innerText = alloted_to;
+            document.getElementById('thing1').innerText = thing1;
+            document.getElementById('thing2').innerText = thing2;
+            kitchen(alloted_to,thing1,thing2); // Function calling with argument passing
+        }
+        function neha_room(){
+            var room_no = 'F0012'
+            var thing1 = 'Aata'
+            var thing2 = 'Began'
+            var alloted_to = 'Neha'
+            document.getElementById('room_no').innerText = room_no;
+            document.getElementById('alloted_to').innerText = alloted_to;
+            document.getElementById('thing1').innerText = thing1;
+            document.getElementById('thing2').innerText = thing2;
+            kitchen(alloted_to,thing1,thing2); // Function calling with argument passing
+        }
+
+        function kitchen(name,saman1,saman2) 
+        {
+          let element1 ='Gas-chulha'; 
+          let element2 ='Water';
+          let element3 ='Masale';
+          let element4 ='Kadhai';
+          let element5 ='Knife';
+          alert(name + ',' + saman1+ ',' + saman2) 
+          alert('Kitchen availabe elements are ' +element1+", "+element2+", "+element3+", "+element4+", "+element5)
+          alert('Your food is preapared')
+        }
+
+     
+    </script>
+    
+</body>
+</html>
