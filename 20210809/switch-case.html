@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="inputData" placeholder="Enter number to add">
+    <button id="AddIt" onclick="addId()">Add it</button>
+    <p id="listData"></p>
+    <script>
+        let studentSubject = 'gaming';
+
+        // if(studentSubject =='math'){
+        //     document.write('Your have to buy math,chem, physics etc books');
+
+        // }else if(studentSubject=='bio'){
+        //     document.write('Your have to buy Biology,chem, physics etc books');
+
+        // }else if(studentSubject=='arts'){
+        //     document.write('Your have to buy arts,chem, physics etc books');
+
+        // }else if(studentSubject=='humanity'){
+        //     document.write('Your have to buy humanity,chem, physics etc books');
+
+        // }
+
+        //    let name = null
+
+        //     switch(studentSubject){
+
+        //         case 'math' || 'Math'|| 'MATH' :
+        //          document.write('Your have to buy math,chem, physics etc books');
+        //         break;
+
+        //         case 'bio':
+        //         document.write('Your have to buy Bio,chem, physics etc books');
+        //         break
+
+        //         case 'arts':
+        //         document.write('Your have to buy arts,chem, physics etc books');
+        //         break
+
+        //         case 'humanity':
+        //         document.write('Your have to buy humanity,chem, physics etc books');
+        //         break;
+
+        //         default:               
+        //         document.write( studentSubject +' Is not found');
+        //         break;
+        //     }
+
+        function addId() {
+            let a
+            let list = []
+            
+            a =   document.getElementById('AddIt').innerHTML; 
+            list.push(Number(a))
+           let p =  document.getElementById('listData').innerHTML 
+            list.forEach(element => {
+                console.log(element)
+            });
+            console.log(list);
+        }
+    </script>
+
+</body>
+
+</html>

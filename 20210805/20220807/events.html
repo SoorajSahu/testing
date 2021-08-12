@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function showInputs()
+        {
+            let input = document.getElementById('Input1').value
+           let p = document.getElementsByTagName('p')[0]
+
+           let inputData = Number(input);
+
+           if(typeof(inputData) == "number")
+           {
+            if(input.length == 10){
+                p.innerHTML = 'Phone number formate is correct'
+                p.style.color='green'
+
+            }else{
+                p.innerHTML = 'Phone number formate is incorrect'
+                p.style.color='red'
+            }
+        }else{
+            p.innerHTML = 'Please enter a valid phone number'
+                p.style.color='red'
+        }
+
+
+        }
+    </script>
+</head>
+<body>
+    <input id="Input1" type="email" onchange="showInputs()" placeholder="Enter Your phone number">
+    
+    <p>
+        
+    </p>
+
+</body>
+</html>
