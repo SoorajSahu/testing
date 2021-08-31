@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <input  type="text" placeholder="Enter phone number">
+   <button onclick="covertIntoNameAndSername()">Split name</button>
+   <p ></p>
+   <script>
+       
+     function covertIntoNameAndSername(){
+        let phone = document.getElementsByTagName('input')[0].value
+        
+        let phone1 =  phone.match(/[0-9]/g)
+        if(phone1.length == 10)
+        document.getElementsByTagName('p')[0].innerText = 'This is valid phone number'
+        else 
+        document.getElementsByTagName('p')[0].innerText = 'This is not a valid phone number'
+     }
+// let char =    `ab Abcd ab ab   
+// \nAb
+
+//  LK ab ABAB`
+//     document.getElementsByTagName('p')[0].innerText=char;
+// console.log(char.match(/[A-Z]/g))
+
+   </script>
+</body>
+</html>
